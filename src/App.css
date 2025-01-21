@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500&family=Lora:wght@400;500&family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --text-clr: #eaeaea;
+  --bg-clr: #0d0d0d;
+  --card-bg: rgba(30, 30, 30, 0.7);
+  --border-clr: rgba(255, 255, 255, 0.1);
+  --accent-clr: #ff9800;
+  --neon-glow: rgba(255, 152, 0, 0.6);
+  --glass-blur: blur(10px);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: linear-gradient(135deg, #000000, #1c1c1c);
+  color: var(--text-clr);
+}
+
+/* Reusable Code */
+.container {
+  max-width: 140rem;
+  margin: auto;
+  padding: 3rem;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.grid-4-col {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* 🎬 Glassmorphism Movie Cards */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-clr);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--neon-glow);
+}
+
+.card-info h2 {
+  font-size: 2rem;
+  color: var(--text-clr);
+  background: linear-gradient(45deg, #ff9800, #ff5733);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-info img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-info img:hover {
+  transform: scale(1.05);
+}
+
+/* 🔍 Search Bar Animation */
+.search-section {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+input {
+  width: 35rem;
+  padding: 1.2rem;
+  border: none;
+  font-size: 1.6rem;
+  background-color: var(--card-bg);
+  color: var(--text-clr);
+  outline: none;
+  border-radius: 50px;
+  text-align: center;
+  transition: width 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input:focus {
+  width: 40rem;
+  box-shadow: 0 0 12px var(--neon-glow);
+}
+
+/* 🎥 Movie Detail Section */
+.movie-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #141414, #252525);
+  padding: 4rem;
+}
+
+.movie-card {
+  background-color: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 50rem;
+  border: 1px solid var(--border-clr);
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.movie-card .title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff9800, #ff3333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card-text {
+  font-size: 1.8rem;
+  color: var(--text-clr);
+}
+
+/* 🎭 Buttons & Links */
+a {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  color: var(--accent-clr);
+  border: 2px solid var(--accent-clr);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  background-color: var(--accent-clr);
+  color: var(--bg-clr);
+  box-shadow: 0 0 12px var(--neon-glow);
+}
+
+/* 🔥 Neon Hover Effect */
+a:hover h2 {
+  transform: translateY(-1.5rem);
+}
+
+a:hover img {
+  transform: scale(1.1);
+}
+
+/* 🏆 Back Button */
+.back-btn {
+  padding: 1.2rem 3.6rem;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 998px) {
+  .container {
+    max-width: 90rem;
+  }
+
+  .grid-4-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  input {
+    width: 30rem;
+  }
+
+  input:focus {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 70rem;
+  }
+
+  .grid-4-col {
+    grid-template-columns: 1fr;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  input:focus {
+    width: 90%;
+  }
+
+  .movie-card {
+    width: 90%;
+  }
+}
